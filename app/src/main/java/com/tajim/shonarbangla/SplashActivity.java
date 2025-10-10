@@ -1,6 +1,8 @@
 package com.tajim.shonarbangla;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,7 +10,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class SplashActivity extends AppCompatActivity {
+import com.tajim.shonarbangla.others.BaseActivity;
+import com.tajim.shonarbangla.others.SQLiteHelper;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class SplashActivity extends BaseActivity {
+    SQLiteHelper sqLiteHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +29,44 @@ public class SplashActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        sqLiteHelper = new SQLiteHelper(this);
+        getData();
+    }
+
+    private void getData(){
+        jsonArrayReq(false,"http://192.168.1.5/scrap/getPrice.php" ,null, new JsonArrayCallBack() {
+            @Override
+            public void onSuccess(JSONArray result) {
+                sqLiteHelper.clear();
+                for (int i = 0 ; i < result.length(); i++){
+                    try {
+                        JSONObject jsonObject = new JSONObject();
+                        jsonObject = (JSONObject) result.get(i);
+                        String k22_price = jsonObject.getString("22k_price");
+                        String k21_price = jsonObject.getString("21k_price");
+                        String date = jsonObject.getString("date");
+
+                        sqLiteHelper.insertData(k22_price,k21_price,date);
+
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                }
+
+                startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                finish();
+
+
+            }
+
+            @Override
+            public void onFailed() {
+                startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                finish();
+            }
         });
     }
 

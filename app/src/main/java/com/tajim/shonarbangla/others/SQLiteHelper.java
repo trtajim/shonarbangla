@@ -29,6 +29,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public Cursor getData (){
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         return sqLiteDatabase.rawQuery("SELECT * FROM "+CONSTANTS.sqlitePriceTable, null);
+
     }
     public void insertData (String k22_price, String k21_price, String date){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
@@ -40,5 +41,12 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
         sqLiteDatabase.insert(CONSTANTS.sqlitePriceTable, null, contentValues);
 
+
+    }
+
+    public void clear(){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        sqLiteDatabase.execSQL("DELETE FROM " + CONSTANTS.sqlitePriceTable);
+        sqLiteDatabase.close();
     }
 }
