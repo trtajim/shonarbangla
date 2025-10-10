@@ -52,9 +52,13 @@ public class SplashActivity extends BaseActivity {
                         String k22_priceS = jsonObject.getString("22k_price_silver");
                         String k21_priceS = jsonObject.getString("21k_price_silver");
                         String k18_priceS = jsonObject.getString("18k_price_silver");
+
+                        String k22_priceSaudi = jsonObject.getString("22k_price_saudi");
+                        String k21_priceSaudi = jsonObject.getString("21k_price_saudi");
+                        String k18_priceSaudi = jsonObject.getString("18k_price_saudi");
                         String date = jsonObject.getString("date");
 
-                        sqLiteHelper.insertData(k22_price,k21_price, k18_price,k22_priceS,k21_priceS, k18_priceS, date);
+                        sqLiteHelper.insertData(k22_price,k21_price, k18_price,k22_priceS,k21_priceS, k18_priceS, date,k22_priceSaudi,k21_priceSaudi, k18_priceSaudi );
 
                     } catch (JSONException e) {
                         throw new RuntimeException(e);

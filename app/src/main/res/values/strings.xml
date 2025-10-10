@@ -13,4 +13,9 @@
         <item><bold>সোনার</bold></item>
         <item><bold>রূপার</bold></item>
     </string-array>
+
+    <string-array name="country_array">
+        <item><bold>বাংলাদেশে</bold></item>
+        <item><bold>সৌদি আরবে</bold></item>
+    </string-array>
 </resources>

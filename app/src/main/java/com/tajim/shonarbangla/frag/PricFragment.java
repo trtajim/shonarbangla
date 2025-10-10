@@ -39,7 +39,7 @@ public class PricFragment extends BaseFragment {
 
         binding = FragmentPricBinding.inflate(inflater, container, false);
 
-        showInformation(0, true);
+        showInformation(0, true, true);
         implementGraph();
         handleSpinner();
 
@@ -48,7 +48,7 @@ public class PricFragment extends BaseFragment {
     }
 
 
-    private void showInformation(int which, Boolean isGold) {
+    private void showInformation(int which, Boolean isGold, Boolean isBd) {
         sqLiteHelper = new SQLiteHelper(getContext());
 
         Cursor priceCursor = sqLiteHelper.getData();
@@ -61,16 +61,25 @@ public class PricFragment extends BaseFragment {
             int price_k22S = Integer.parseInt(priceCursor.getString(4));
             int k21_priceS = Integer.parseInt(priceCursor.getString(5));
             int k18_priceS = Integer.parseInt(priceCursor.getString(6));
+
+
+            float price_k22Saudi = Float.parseFloat(priceCursor.getString(8));
+            float k21_priceSaudi = Float.parseFloat(priceCursor.getString(9));
+            float k18_priceSaudi = Float.parseFloat(priceCursor.getString(10));
             String date = priceCursor.getString(7);
 
             float price;
 
-            if (which == 0 && isGold) price = price_k22;
-            else if (which == 1 && isGold) price = k21_price;
-            else if (which == 2 && isGold) price = k18_price;
-            else if (which == 0 && !isGold) price = price_k22S;
-            else if (which == 1 && !isGold) price = k21_priceS;
-            else  price = k18_priceS;
+            if (which == 0 && isGold && isBd) price = price_k22;
+            else if (which == 1 && isGold && isBd) price = k21_price;
+            else if (which == 2 && isGold && isBd) price = k18_price;
+            else if (which == 0 && !isGold && isBd) price = price_k22S;
+            else if (which == 1 && !isGold && isBd) price = k21_priceS;
+            else if(which == 2 && !isGold && isBd) price = k18_priceS;
+            else if (which == 0 && isGold && !isBd) price = price_k22Saudi;
+            else if (which == 1 && isGold && !isBd) price = k21_priceSaudi;
+            else if (which == 2 && isGold && !isBd) price = k18_priceSaudi;
+            else price = 0;
 
             price+= 0.00F;
 
@@ -260,13 +269,40 @@ public class PricFragment extends BaseFragment {
                 // Optional: handle nothing selected
             }
         });
+        binding.spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+
+                if (first2){
+                    first2 = false;
+                    return;
+                }
+                startLoading();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        refresh();
+                        endLoading();
+                    }
+                },250);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Optional: handle nothing selected
+            }
+        });
     }
 
     private void refresh(){
-        Boolean isGold;
+        Boolean isGold, isBd;
+        if (binding.spinner3.getSelectedItemId() == 0) isBd = true;
+        else isBd = false;
         if (binding.spinner2.getSelectedItemId() == 0 ) isGold = true;
         else isGold = false;
-        showInformation((int) binding.spinner.getSelectedItemId(),isGold);
+        showInformation((int) binding.spinner.getSelectedItemId(),isGold, isBd);
 
     }
 
