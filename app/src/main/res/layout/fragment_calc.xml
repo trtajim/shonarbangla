@@ -5,16 +5,17 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".frag.CalcFragment"
-    android:background="@color/white"
-    android:padding="10dp">
+    android:background="@color/white">
 
-    <com.google.android.material.card.MaterialCardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:cardCornerRadius="5dp"
-        android:elevation="10dp">
+        app:cardElevation="20dp"
+        android:layout_margin="15dp"
+        >
 
         <LinearLayout
 
@@ -22,7 +23,8 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
 
-            android:padding="10dp"
+            android:padding="20dp"
+            android:background="#FCF7FD"
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -136,7 +138,7 @@
 
 
 
-    </com.google.android.material.card.MaterialCardView>
+    </androidx.cardview.widget.CardView>
 
 
     <LinearLayout
@@ -146,6 +148,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:orientation="vertical"
+
+        android:padding="10dp"
 
         >
 

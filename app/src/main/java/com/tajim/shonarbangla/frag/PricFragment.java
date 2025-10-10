@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,19 +57,33 @@ public class PricFragment extends BaseFragment {
             int k21_price = Integer.parseInt(priceCursor.getString(2));
             String date = priceCursor.getString(3);
 
-            int price;
+            float price;
             if (is22) price = price_k22;
             else price = k21_price;
+            price+= 0.00F;
 
-            float k22_vori, k22_roti, k22_ana;
+
+            float k22_vori, k22_roti, k22_ana, k22_point;
             k22_vori = (float) (price* 11.664);
             k22_ana = k22_vori / 16;
             k22_roti = k22_ana / 6;
+            k22_point = k22_roti / 10;
 
-            binding.tvGram.setText("গ্রাম: "+floatToBengali(price)+" ৳");
-            binding.tvVori.setText("ভরি: "+floatToBengali(k22_vori) + " ৳");
-            binding.tvAna.setText("আনা: "+floatToBengali(k22_ana) + " ৳");
-            binding.tvRoti.setText("রতি: "+floatToBengali(k22_roti) + " ৳");
+            binding.tvDisplay.setText(Html.fromHtml(String.format(
+                    "<b>প্রতি ভরি:</b> %s ৳<br>" +
+                            "<b>প্রতি আনা:</b> %s ৳<br>" +
+                            "<b>প্রতি রতি:</b> %s ৳<br>" +
+                            "<b>প্রতি পয়েন্ট:</b> %s ৳<br>" +
+                            "<b>প্রতি গ্রাম:</b> %s ৳",
+                    floatToBengali(k22_vori),
+                    floatToBengali(k22_ana),
+                    floatToBengali(k22_roti),
+                    floatToBengali(k22_point),
+                    floatToBengali(price)
+            )));
+
+
+
             binding.tvDate.setText(String.format("তারিখ: %s\nসোর্স: বাংলাদেশ জুয়েলারি সমিতি", date));
             MainActivity.PRICE = k22_vori;
 

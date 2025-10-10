@@ -21,14 +21,14 @@
 
 
 
-    <com.google.android.material.card.MaterialCardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tvDate"
-        android:elevation="5dp"
-        android:layout_margin="10dp"
+        android:layout_margin="15dp"
         app:cardCornerRadius="5dp"
+        app:cardElevation="20dp"
 
 
         >
@@ -36,7 +36,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="15dp"
+            android:background="#FCF7FD"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -62,39 +64,17 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/tvVori"
+                android:id="@+id/tvDisplay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="16sp"/>
+                android:textSize="17sp"
+                android:lineSpacingExtra="2dp"
+                android:layout_marginTop="5dp"/>
 
-            <TextView
-                android:id="@+id/tvAna"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="16sp"
-                />
-            <TextView
-                android:id="@+id/tvRoti"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="16sp"
 
-                />
-            <TextView
-                android:id="@+id/tvGram"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-
-                android:textSize="16sp"
-
-                />
 
         </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+    </androidx.cardview.widget.CardView>
 
 
 

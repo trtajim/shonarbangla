@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/white">
 
 
     <LinearLayout
@@ -17,7 +18,7 @@
 
         >
         <ImageView
-            android:layout_width="50dp"
+            android:layout_width="40dp"
             android:layout_height="match_parent"
             android:src="@drawable/logo"/>
 
@@ -28,7 +29,7 @@
             android:gravity="center_vertical"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:textSize="23dp"
+            android:textSize="20dp"
             android:translationX="15dp"
 
             />
@@ -38,6 +39,7 @@
             android:layout_height="match_parent"
             >
             <ImageView
+                android:id="@+id/imgI"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:src="@drawable/baseline_nav"
@@ -66,13 +68,13 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="সোনার দাম"/>
+            android:text="স্বর্ণের মূল্য"/>
 
         <com.google.android.material.tabs.TabItem
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="সোনার হিসাব"
+            android:text="স্বর্ণের হিসাব"
             />
 
     </com.google.android.material.tabs.TabLayout>
