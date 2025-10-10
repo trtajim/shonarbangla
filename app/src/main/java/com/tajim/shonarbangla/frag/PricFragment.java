@@ -39,7 +39,7 @@ public class PricFragment extends BaseFragment {
 
         binding = FragmentPricBinding.inflate(inflater, container, false);
 
-        showInformation(true);
+        showInformation(0, true);
         implementGraph();
         handleSpinner();
 
@@ -48,18 +48,30 @@ public class PricFragment extends BaseFragment {
     }
 
 
-    private void showInformation(Boolean is22) {
+    private void showInformation(int which, Boolean isGold) {
         sqLiteHelper = new SQLiteHelper(getContext());
 
         Cursor priceCursor = sqLiteHelper.getData();
         if (priceCursor.moveToLast()) {
+
             int price_k22 = Integer.parseInt(priceCursor.getString(1));
             int k21_price = Integer.parseInt(priceCursor.getString(2));
-            String date = priceCursor.getString(3);
+            int k18_price = Integer.parseInt(priceCursor.getString(3));
+
+            int price_k22S = Integer.parseInt(priceCursor.getString(4));
+            int k21_priceS = Integer.parseInt(priceCursor.getString(5));
+            int k18_priceS = Integer.parseInt(priceCursor.getString(6));
+            String date = priceCursor.getString(7);
 
             float price;
-            if (is22) price = price_k22;
-            else price = k21_price;
+
+            if (which == 0 && isGold) price = price_k22;
+            else if (which == 1 && isGold) price = k21_price;
+            else if (which == 2 && isGold) price = k18_price;
+            else if (which == 0 && !isGold) price = price_k22S;
+            else if (which == 1 && !isGold) price = k21_priceS;
+            else  price = k18_priceS;
+
             price+= 0.00F;
 
 
@@ -194,20 +206,24 @@ public class PricFragment extends BaseFragment {
 
         return formatted;
     }
-
+    Boolean first1 = true;
+    Boolean first2 = true;
     private void handleSpinner(){
+
 
         binding.spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-
+                if (first1){
+                    first1 = false;
+                    return;
+                }
                 startLoading();
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        if (position == 0) showInformation(true);
-                        else showInformation(false);
+                        refresh();
                         endLoading();
                     }
                 },250);
@@ -219,6 +235,39 @@ public class PricFragment extends BaseFragment {
                 // Optional: handle nothing selected
             }
         });
+        binding.spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+
+                if (first2){
+                    first2 = false;
+                    return;
+                }
+                startLoading();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        refresh();
+                        endLoading();
+                    }
+                },250);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Optional: handle nothing selected
+            }
+        });
+    }
+
+    private void refresh(){
+        Boolean isGold;
+        if (binding.spinner2.getSelectedItemId() == 0 ) isGold = true;
+        else isGold = false;
+        showInformation((int) binding.spinner.getSelectedItemId(),isGold);
+
     }
 
 }

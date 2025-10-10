@@ -27,14 +27,14 @@
                 android:id="@+id/img_cus"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
-                android:background="#B72020"
+                android:background="@color/primary"
                 >
 
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:src="@drawable/baseline_nav"
-                    android:tint="@color/white"
+                    app:tint="@color/white"
 
                     android:layout_centerInParent="true"/>
 
@@ -74,7 +74,7 @@
                 android:text="Privacy policy"
                 android:layout_below="@+id/txt_cus"
                 android:textStyle="bold"
-                android:textColor="#075E54"
+                android:textColor="@color/primary"
                 android:layout_alignParentRight="true"
                 android:translationX="-50dp"
                 android:clickable="true"

@@ -40,15 +40,21 @@ public class SplashActivity extends BaseActivity {
             @Override
             public void onSuccess(JSONArray result) {
                 sqLiteHelper.clear();
+                Log.d("appLog", result.toString());
                 for (int i = 0 ; i < result.length(); i++){
                     try {
                         JSONObject jsonObject = new JSONObject();
                         jsonObject = (JSONObject) result.get(i);
                         String k22_price = jsonObject.getString("22k_price");
                         String k21_price = jsonObject.getString("21k_price");
+                        String k18_price = jsonObject.getString("18k_price");
+
+                        String k22_priceS = jsonObject.getString("22k_price_silver");
+                        String k21_priceS = jsonObject.getString("21k_price_silver");
+                        String k18_priceS = jsonObject.getString("18k_price_silver");
                         String date = jsonObject.getString("date");
 
-                        sqLiteHelper.insertData(k22_price,k21_price,date);
+                        sqLiteHelper.insertData(k22_price,k21_price, k18_price,k22_priceS,k21_priceS, k18_priceS, date);
 
                     } catch (JSONException e) {
                         throw new RuntimeException(e);

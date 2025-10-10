@@ -6,5 +6,11 @@
     <string-array name="gold_array">
         <item><bold>২২ ক্যারেট</bold></item>
         <item><bold>২১ ক্যারেট</bold></item>
+        <item><bold>১৮ ক্যারেট</bold></item>
+    </string-array>
+
+    <string-array name="item_array">
+        <item><bold>সোনার</bold></item>
+        <item><bold>রূপার</bold></item>
     </string-array>
 </resources>

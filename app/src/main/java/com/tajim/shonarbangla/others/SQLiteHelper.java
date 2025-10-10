@@ -15,7 +15,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL(String.format("CREATE TABLE %s (id INTEGER PRIMARY KEY AUTOINCREMENT, k22_price TEXT, k21_price TEXT, date TEXT)", CONSTANTS.sqlitePriceTable));
+        db.execSQL(String.format("CREATE TABLE %s (id INTEGER PRIMARY KEY AUTOINCREMENT, k22_price TEXT, k21_price TEXT,k18_price TEXT,k22_price_silver TEXT, k21_price_silver TEXT,k18_price_silver TEXT, date TEXT)", CONSTANTS.sqlitePriceTable));
 
     }
 
@@ -31,12 +31,16 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         return sqLiteDatabase.rawQuery("SELECT * FROM "+CONSTANTS.sqlitePriceTable, null);
 
     }
-    public void insertData (String k22_price, String k21_price, String date){
+    public void insertData (String k22_price, String k21_price,String k18_price, String k22_priceS, String k21_priceS,String k18_priceS, String date){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
         contentValues.put("k22_price", k22_price);
         contentValues.put("k21_price", k21_price);
+        contentValues.put("k18_price", k18_price);
+        contentValues.put("k22_price_silver", k22_priceS);
+        contentValues.put("k21_price_silver", k21_priceS);
+        contentValues.put("k18_price_silver", k18_priceS);
         contentValues.put("date", date);
 
         sqLiteDatabase.insert(CONSTANTS.sqlitePriceTable, null, contentValues);
