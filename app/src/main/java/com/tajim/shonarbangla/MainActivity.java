@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
 
     ViewPager2 pagerAdapter;
+    public static float PRICE = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

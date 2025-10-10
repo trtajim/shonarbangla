@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
+import com.tajim.shonarbangla.MainActivity;
 import com.tajim.shonarbangla.databinding.FragmentPricBinding;
 import com.tajim.shonarbangla.others.BaseFragment;
 import com.tajim.shonarbangla.others.SQLiteHelper;
@@ -69,6 +70,7 @@ public class PricFragment extends BaseFragment {
             binding.tvAna.setText("আনা: "+floatToBengali(k22_ana) + " ৳");
             binding.tvRoti.setText("রতি: "+floatToBengali(k22_roti) + " ৳");
             binding.tvDate.setText(String.format("তারিখ: %s\nসোর্স: বাংলাদেশ জুয়েলারি সমিতি", date));
+            MainActivity.PRICE = k22_vori;
 
             priceCursor.close();
         }

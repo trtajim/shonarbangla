@@ -5,16 +5,427 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".frag.CalcFragment"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:padding="10dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Calculator"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardCornerRadius="5dp"
+        android:elevation="10dp">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+            android:padding="10dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="স্বর্ণের পরিমাণ:"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/edVori"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ভরি:"/>
+                <EditText
+                    android:id="@+id/edAna"
+
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="আনা:"/>
+                <EditText
+                    android:id="@+id/edRoti"
+
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="রতি:"/>
+                <EditText
+                    android:id="@+id/edPoint"
+
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="পয়েন্ট:"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="প্রতি ভরি মূল্য:"
+                    android:layout_alignParentStart="true"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="শতাংশে মজুরি (%):"
+                    android:layout_alignParentEnd="true"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/edPrice"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:inputType="number"
+
+                    />
+
+                <EditText
+                    android:id="@+id/edMojuri"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:inputType="number"
+
+                    />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <LinearLayout
+        android:id="@+id/linTable"
+        app:layout_constraintTop_toBottomOf="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:background="#5B5A5A"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="পরিমাণ: "
+                android:layout_alignParentStart="true"
+                android:textColor="@color/white"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/dam"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="দাম: "
+                android:layout_alignParentEnd="true"
+                android:gravity="center"
+
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="দর: "
+                android:layout_toLeftOf="@id/dam"
+                android:gravity="center"
+
+                android:textColor="@color/white"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#EBE9E9"
+            android:gravity="center_vertical"
+
+
+            >
+
+            <TextView
+                android:id="@+id/tvVori"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="০ ভরি: "
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="10dp"
+                />
+
+            <TextView
+                android:id="@+id/tvDamVori"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/tvDorVori"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="দর: "
+                android:layout_toLeftOf="@id/tvDamVori"
+                android:gravity="center"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+
+            >
+
+            <TextView
+                android:id="@+id/tvAna"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="০ আনা: "
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="10dp"
+
+                />
+
+            <TextView
+                android:id="@+id/tvDamAna"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/tvDorAna"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="দর: "
+                android:layout_toLeftOf="@id/tvDamAna"
+                android:gravity="center"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+
+            android:background="#EBE9E9"
+            android:gravity="center_vertical"
+            >
+
+            <TextView
+                android:id="@+id/tvRoti"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="০ রতি: "
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="10dp"
+
+                />
+
+            <TextView
+                android:id="@+id/tvDamRoti"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/tvDorRoti"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="দর: "
+                android:layout_toLeftOf="@id/tvDamRoti"
+                android:gravity="center"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+
+            >
+
+            <TextView
+                android:id="@+id/tvPoint"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="০ পয়েন্ট: "
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="10dp"
+
+                />
+
+            <TextView
+                android:id="@+id/tvDamPoint"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/tvDorPoint"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="দর: "
+                android:layout_toLeftOf="@id/tvDamPoint"
+                android:gravity="center"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+
+            android:background="#EBE9E9"
+            android:gravity="center_vertical"
+
+            >
+
+
+
+            <TextView
+                android:id="@+id/tvDam"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="স্বর্ণের দাম: "
+                android:layout_toLeftOf="@id/tvDam"
+                android:gravity="center"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+
+            android:gravity="center_vertical"
+
+            >
+
+
+
+            <TextView
+                android:id="@+id/tvMojuri"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="স্বর্ণের মজুরি: "
+                android:layout_toLeftOf="@id/tvMojuri"
+                android:gravity="center"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+
+            android:gravity="center_vertical"
+            android:background="#ddf9bc"
+            >
+
+
+
+            <TextView
+                android:id="@+id/tvFinalDam"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="সর্বমোট: "
+                android:layout_toLeftOf="@id/tvFinalDam"
+                android:gravity="center"/>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnReset"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        app:cornerRadius="5dp"
+
+        android:text="আবার হিসাব করুন"
+        app:layout_constraintTop_toBottomOf="@+id/linTable"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:visibility="invisible"
+        />
+
+
+
 
     <View
         android:layout_width="match_parent"
