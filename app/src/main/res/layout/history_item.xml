@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000"
+        android:stretchColumns="*"
+    >
+
+
+        <TableRow>
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="09/10/2025"
+                android:background="@color/white"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:minWidth="110dp"
+                android:maxWidth="110dp"
+                />
+            <TextView
+                android:id="@+id/c22_bd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="২২ ক্যারেট\nস্বর্ণ BD"
+                android:background="@color/white"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:padding="10dp"
+
+                android:minWidth="100dp"
+                android:maxWidth="100dp"
+
+                />
+            <TextView
+                android:id="@+id/c21_bd"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="২১ ক্যারেট\nস্বর্ণ BD"
+                android:background="@color/white"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:padding="10dp"
+
+                android:minWidth="100dp"
+                android:maxWidth="100dp"
+
+                />
+            <TextView
+                android:id="@+id/c18_bd"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="১৮ ক্যারেট\nস্বর্ণ BD"
+                android:background="@color/white"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:padding="10dp"
+
+                android:minWidth="100dp"
+                android:maxWidth="100dp"
+
+                />
+
+            <TextView
+                android:id="@+id/c22_sa"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="২২ ক্যারেট\nস্বর্ণ SA"
+                android:background="@color/white"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:padding="10dp"
+
+                android:minWidth="100dp"
+                android:maxWidth="100dp"
+
+                />
+            <TextView
+                android:id="@+id/c21_sa"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="২১ ক্যারেট\nস্বর্ণ SA"
+                android:background="@color/white"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:padding="10dp"
+
+                android:minWidth="100dp"
+                android:maxWidth="100dp"
+
+                />
+            <TextView
+                android:id="@+id/c18_sa"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="১৮ ক্যারেট\nস্বর্ণ SA"
+                android:background="@color/white"
+                android:layout_margin="0.5dp"
+                android:gravity="center"
+                android:padding="10dp"
+
+                android:minWidth="100dp"
+                android:maxWidth="100dp"
+
+                />
+
+
+
+
+
+
+        </TableRow>
+    </TableLayout>
+
+
+</RelativeLayout>

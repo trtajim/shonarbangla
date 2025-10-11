@@ -1,5 +1,6 @@
 package com.tajim.shonarbangla.frag;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
+import com.tajim.shonarbangla.HistoryActivity;
 import com.tajim.shonarbangla.MainActivity;
 import com.tajim.shonarbangla.databinding.FragmentPricBinding;
 import com.tajim.shonarbangla.others.BaseFragment;
@@ -42,6 +44,10 @@ public class PricFragment extends BaseFragment {
         showInformation(0, true, true);
         implementGraph();
         handleSpinner();
+
+        binding.tvDate.setOnClickListener(v->{
+            startActivity(new Intent(requireContext(), HistoryActivity.class));
+        });
 
 
         return binding.getRoot();
@@ -105,7 +111,8 @@ public class PricFragment extends BaseFragment {
 
 
 
-            binding.tvDate.setText(String.format("তারিখ: %s\nসোর্স: বাংলাদেশ জুয়েলারি সমিতি", date));
+            binding.tvDate.setText(Html.fromHtml("তারিখ: " + date + " <b><u>আগের তথ্য দেখুন</u></b>"));
+
             MainActivity.PRICE = k22_vori;
 
             priceCursor.close();

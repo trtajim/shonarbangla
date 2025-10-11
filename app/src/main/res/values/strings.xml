@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">সোনার বাংলা</string>
+    <string name="app_moto">স্বর্ণের দামের প্রতিদিনের আপডেট, এখন আপনার হাতের মুঠোয় ..!</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

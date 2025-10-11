@@ -11,12 +11,22 @@
         android:id="@+id/tvDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="তারিখ: ২০/০৭/২০২৫\nসোর্স: বাংলাদেশ জুয়েলারি সমিতি"
+        android:text="তারিখ: ২০/০৭/২০২৫"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center_horizontal"
         android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:id="@+id/tvSource"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="সোর্স: বাংলাদেশ জুয়েলারি সমিতি "
+        app:layout_constraintTop_toBottomOf="@id/tvDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center_horizontal"
         />
 
 
@@ -25,7 +35,7 @@
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tvDate"
+        app:layout_constraintTop_toBottomOf="@+id/tvSource"
         android:layout_margin="15dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="20dp"
