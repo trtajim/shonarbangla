@@ -66,9 +66,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
             holder.binding.c18Sa.setText(hashMap.get("c18_sa")+ CONSTANTS.currency);
         }
 
-        holder.binding.date.setOnClickListener(v->{
-            Toast.makeText(context, position+"", Toast.LENGTH_SHORT).show();
-        });
+
 
 
     }
