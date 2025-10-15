@@ -203,7 +203,7 @@ public class CalcFragment extends Fragment {
 
     }
 
-    private int getIntFromEd(EditText editText){
+    public static int getIntFromEd(EditText editText){
         String a = editText.getText().toString();
         if (a.isEmpty()) return 0;
         else return Integer.parseInt(a);

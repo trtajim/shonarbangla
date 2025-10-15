@@ -7,6 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.tajim.shonarbangla.frag.CalcFragment;
 import com.tajim.shonarbangla.frag.PricFragment;
+import com.tajim.shonarbangla.frag.ZakatFragment;
 
 public class ViewPager2 extends FragmentStateAdapter {
     public ViewPager2(@NonNull FragmentActivity fragmentActivity) {
@@ -21,6 +22,8 @@ public class ViewPager2 extends FragmentStateAdapter {
                 return new PricFragment();
             case 1:
                 return new CalcFragment();
+            case 2:
+                return new ZakatFragment();
             default:
                 return new PricFragment();
         }
@@ -29,6 +32,6 @@ public class ViewPager2 extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 2;
+        return 3;
     }
 }

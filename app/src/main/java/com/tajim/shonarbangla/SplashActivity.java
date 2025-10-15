@@ -36,7 +36,7 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void getData(){
-        jsonArrayReq(false,"http://192.168.1.5/scrap/getPrice.php" ,null, new JsonArrayCallBack() {
+        jsonArrayReq(false,"http://192.168.1.6/scrap/getPrice.php" ,null, new JsonArrayCallBack() {
             @Override
             public void onSuccess(JSONArray result) {
                 sqLiteHelper.clear();
